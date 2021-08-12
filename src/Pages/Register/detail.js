@@ -19,22 +19,19 @@ const Detail = (props) => {
   const valueID = Math.floor(Math.random() * (4 - 1) + 1);
 
   function loadUser() {
-    
-      if (context.lstUser.length > 0) {
-        const user = context.lstUser.find(
-          (item) => item.id === history.location.state.id
-        );
-        setUser(user);
-      } else {
-        returnHome();
-      }
+    if (context.lstUser.length > 0) {
+      const user = context.lstUser.find(
+        (item) => item.id === history.location.state.id
+      );
+      setUser(user);
+    } else {
+      returnHome();
+    }
   }
 
   useEffect(() => {
-      
-          loadUser();
-      
-  })
+    loadUser();
+  });
 
   function returnHome() {
     history.push("/");
